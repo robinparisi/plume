@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plume</title>
+    <link rel="stylesheet" href="demo.css">
+    <link rel="stylesheet" href="../plume.css">
+</head>
+<body>
+
+<div class="container">
+    <button class="btn btn--success" data-notif="success">Success</button>
+    <button class="btn btn--warning" data-notif="warning">Warning</button>
+    <button class="btn btn--error" data-notif="error">Error</button>
+</div>
+
+<script src="../plume.js" type="text/javascript"></script>
+<script>
+
+    // plume instanciation
+    var plume = new Plume();
+    //plume.success('Bazinga');
+
+    [].forEach.call(document.querySelectorAll('.btn'), function(el) {
+        el.addEventListener('click', function() {
+            var type = el.dataset.notif;
+            plume[el.dataset.notif]('Notification type : ' + type);
+        })
+    })
+
+</script>
+</body>
+</html>
